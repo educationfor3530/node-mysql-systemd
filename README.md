@@ -1,7 +1,7 @@
 # Node.js MySQL Application with systemd
 
-![Node.js](https://img.shields.io/badge/Node.js-18.x-green)
-![MySQL](https://img.shields.io/badge/MySQL-8.0-blue)
+![Node.js](https://img.shields.io/badge/Node.js)
+![MySQL](https://img.shields.io/badge/MySQL)
 ![systemd](https://img.shields.io/badge/systemd-Service-red)
 
 A production-ready Node.js application with MySQL database integration, deployed as a systemd service.
