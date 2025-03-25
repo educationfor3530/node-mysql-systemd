@@ -108,9 +108,9 @@ sudo systemctl start node-mysql-systemd
 ```
 
 ## API Endpoints
-- `GET /` - Application info
-- `GET /health` - Health check
-- `GET /users` - List all users
+- `http://localhost:3000` - Application info
+- `http://localhost:3000/health` - Health check
+- `http://localhost:3000/users` - List all users
 
 ## Monitoring
 Check service status:
