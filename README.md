@@ -2,7 +2,7 @@
 
 ## Main Objective:
 A production-ready Node.js application with MySQL database integration, deployed as a systemd service.
-## visualization of process 
+## Visualization of the application process
 ![Demo Animation](nodejs.gif)
 
 ## Features
