@@ -25,7 +25,7 @@ A production-ready Node.js application with MySQL database integration, deployed
 ### 1. Clone the repository
 ```bash[
 https://github.com/educationfor3530/node-mysql-systemd.git
-cd node-mysql-app
+cd node-mysql-systemd
 ```
 
 ### 2. Install dependencies
@@ -55,9 +55,9 @@ CREATE TABLE users (
 );
 
 INSERT INTO users (name, email) VALUES 
-('Alice Johnson', 'alice@example.com'),
-('Bob Smith', 'bob@example.com'),
-('Charlie Brown', 'charlie@example.com');
+('Mahbubul Hasan', 'mahbubul@gmail.com'),
+('shoyaib', 'shoyaib@gmail.com'),
+('tanvir', 'tanvir@gmail.com');
 ```
 
 ### 5. Secure MySQL installation
@@ -73,13 +73,13 @@ sudo useradd -r -s /bin/false appuser
 ```
 2. Set up application directory with proper permissions:
 ```bash
-sudo mkdir -p /opt/node-mysql-app
-sudo cp -R . /opt/node-mysql-app
-sudo chown -R appuser:appuser /opt/node-mysql-app
+sudo mkdir -p /opt/node-mysql-systemd
+sudo cp -R . /opt/node-mysql-systemd
+sudo chown -R appuser:appuser /opt/node-mysql-systemd
 ```
 3. Create a systemd service file:
 ```bash
-sudo vi /etc/systemd/system/node-mysql-app.service
+sudo vi /etc/systemd/system/node-mysql-systemd.service
 ```
 
 4. Paste this configuration:
@@ -91,8 +91,8 @@ After=network.target mysql.service
 [Service]
 User=appuser
 Group=appuser
-WorkingDirectory=/opt/node-mysql-app
-ExecStart=/usr/bin/node /opt/node-mysql-app/app.js
+WorkingDirectory=/opt/node-mysql-systemd
+ExecStart=/usr/bin/node /opt/node-mysql-app/systemd.js
 Restart=always
 RestartSec=10
 Environment=NODE_ENV=production
@@ -105,8 +105,8 @@ WantedBy=multi-user.target
 5. Enable and start the service:
 ```bash
 sudo systemctl daemon-reload
-sudo systemctl enable node-mysql-app
-sudo systemctl start node-mysql-app
+sudo systemctl enable node-mysql-systemd
+sudo systemctl start node-mysql-systemd
 ```
 
 ## API Endpoints
@@ -117,10 +117,24 @@ sudo systemctl start node-mysql-app
 ## Monitoring
 Check service status:
 ```bash
-sudo systemctl status node-mysql-app
+sudo systemctl status node-mysql-systemd
 ```
 
 View logs:
 ```bash
 journalctl -u node-mysql-app -f
+```
+## Destroy the project
+1. Stop the service
+```bash
+sudo systemctl stop node-mysql-systemd.service
+```
+2. Disable the Service (Prevent Auto-Start)
+```bash
+sudo systemctl disable node-mysql-systemd.service
+```
+3. Remove the Service File
+```bash
+sudo rm /etc/systemd/system/node-mysql-systemd.service
+sudo systemctl daemon-reload
 ```
